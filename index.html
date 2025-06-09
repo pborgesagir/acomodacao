@@ -40,7 +40,8 @@
         header, main, footer {
             position: relative;
             z-index: 1;
-            margin: 0 20px;
+            margin-left: 20px;
+            margin-right: 20px;
         }
         header {
             background-color: rgba(0, 123, 255, 0.9);
@@ -48,17 +49,40 @@
             padding: 20px;
             text-align: center;
             border-radius: 8px;
-            margin: 20px 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        .header-logo {
-            max-height: 80px;
-            max-width: 90%;
-            margin-bottom: 15px;
-            border-radius: 15px;
+
+        /* === ADDED LOGO STYLES === */
+        .logo-ensemble {
+            display: flex;
+            flex-direction: column; /* Stack logos vertically */
+            align-items: center;   /* Center logos horizontally in the stack */
+            gap: 15px;             /* Increased gap for the larger logo */
+            margin-bottom: 15px;   /* Space below the logos, before the H1 */
+            width: 100%;
         }
+
+        .clinic-logo-discreet { /* For logo.jpg */
+            max-height: 80px;      /* Original size */
+            max-width: 250px;      /* Set a generous max-width to allow scaling */
+            object-fit: contain;
+            border-radius: 15px;   /* Original radius */
+            order: 2;              /* Appears second (bottom) */
+        }
+
+        .main-slogan-logo { /* For 2-horizontal-slogan.png */
+            max-height: 60px;
+            max-width: 85%;
+            object-fit: contain;
+            border-radius: 8px;
+            order: 1; /* Appears first (top) */
+        }
+        /* === END ADDED LOGO STYLES === */
+
         header h1 { margin: 0; font-size: 2em; }
         section {
             background-color: rgba(255, 255, 255, 0.95);
@@ -72,6 +96,11 @@
             border-bottom: 2px solid #eee;
             padding-bottom: 5px;
             margin-bottom: 15px;
+        }
+        h3 {
+            color: #0056b3;
+            margin-top: 15px;
+            margin-bottom: 10px;
         }
         ul {
             list-style: disc;
@@ -112,7 +141,8 @@
         }
         footer {
             text-align: center;
-            margin: 30px 0 20px;
+            margin-top: 30px;
+            margin-bottom: 20px;
             font-size: 0.9em;
             color: #666;
             background: rgba(244, 244, 244, 0.8);
@@ -123,15 +153,34 @@
             .device-list { column-count: 1; }
             header h1 { font-size: 1.8em; }
             section { padding: 15px; }
-            header, main, footer { margin: 0 10px; }
-            .header-logo { max-height: 60px; margin-bottom: 10px; }
+            header, main, footer {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            header {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            
+            /* === ADDED RESPONSIVE LOGO STYLES === */
+            .main-slogan-logo {
+                max-height: 50px; 
+                max-width: 90%; 
+            }
+            .clinic-logo-discreet {
+                max-height: 60px; /* Original mobile size */
+            }
+            /* === END ADDED RESPONSIVE LOGO STYLES === */
         }
     </style>
 </head>
 <body>
     <div class="symbol-container"></div>
     <header>
-        <img src="logo.jpg" alt="Logo da Clínica" class="header-logo">
+        <div class="logo-ensemble">
+            <img src="logo.jpg" alt="Logo da Clínica TEIA" class="clinic-logo-discreet">
+            <img src="2-horizontal-slogan.png" alt="Secretaria dos Direitos da Pessoa com Deficiência - São Paulo Governo do Estado" class="main-slogan-logo">
+        </div>
         <h1>Acomodação Sensorial</h1>
     </header>
     <main>
